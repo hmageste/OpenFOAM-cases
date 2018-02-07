@@ -22,19 +22,19 @@ width 0.1;
 
 vertices
 (
-    (0          #calc "-1.0*$height/2.0"  #calc "-$width")  // 0
-    (0          #calc "-1.0*$height/2.0"  $width         )  // 1
-    (0          #calc "$height/2.0"       $width         )  // 2
-    (0          #calc "$height/2.0"       #calc "-$width")  // 3
-    ($length    #calc "-1.0*$height/2.0"  #calc "-$width")  // 4
+    (0          #calc "-1.0*$height/2.0"  $width         )  // 0
+    (0          #calc "$height/2.0"       $width         )  // 1
+    (0          #calc "$height/2.0"       #calc "-$width")  // 2
+    (0          #calc "-1.0*$height/2.0"  #calc "-$width")  // 3
     ($length    #calc "-1.0*$height/2.0"  $width         )  // 5
-    ($length    #calc "$height/2.0"       $width         )  // 6
-    ($length    #calc "$height/2.0"       #calc "-$width")  // 7
+    ($length    #calc "$height/2.0"       $width         )  // 4
+    ($length    #calc "$height/2.0"       #calc "-$width")  // 6
+    ($length    #calc "-1.0*$height/2.0"  #calc "-$width")  // 7
 );
 
 blocks
 (
-    hex (3 2 1 0   7 6 5 4) (20 20 1) simpleGrading (1 1 1)
+    hex (3 7 6 2  0 4 5 1) (20 20 1) simpleGrading (1 1 1)
 );
 
 edges
@@ -48,7 +48,7 @@ boundary
         type patch;
         faces
         (
-            (3 2 1 0)
+            (0 1 2 3)
         );
     }
     outlet
@@ -64,7 +64,7 @@ boundary
         type wall;
         faces
         (
-            (2 6 7 3)
+            (1 5 6 2)
         );
     }
     lowerWall
@@ -72,7 +72,7 @@ boundary
         type wall;
         faces
         (
-            (0 4 5 1)
+            (0 3 7 4)
         );
     }
     frontAndBack
@@ -80,8 +80,8 @@ boundary
         type empty;
         faces
         (
-            (0 3 7 4)
-            (1 5 6 2)
+            (2 6 7 3)
+            (0 4 5 1)
         );
     }
 
